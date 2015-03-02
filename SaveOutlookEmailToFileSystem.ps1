@@ -53,5 +53,5 @@ foreach($item in $folder.items)
 	$filepath = "$path\$filename.msg";
 	$filepath
  
-	#$item.SaveAs("$filepath")
+	$item.SaveAs("$filepath")
 }
