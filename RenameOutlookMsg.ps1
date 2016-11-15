@@ -51,10 +51,10 @@ $item = $outlook.CreateItemFromTemplate($filepath)
 $subject = $item.Subject.ToString();
 $subject = Make-StringFilenameSafe -inputstring $subject
 
-$sender = $item.SenderName.ToString();
-$sender = Make-StringFilenameSafe -inputstring $sender
+$senderName = $item.SenderName.ToString();
+$senderName = Make-StringFilenameSafe -inputstring $senderName
 
-$filename = $item.ReceivedTime.tostring("dd-MM-yyyy-hh-mm-ss-fff") + "_" + $sender + "_" + $subject
+$filename = $item.ReceivedTime.tostring("dd-MM-yyyy-hh-mm-ss-fff") + "_" + $senderName + "_" + $subject
 
 $newpath = Split-Path -parent $filepath
 $newpath = "$newpath\$filename.msg";
