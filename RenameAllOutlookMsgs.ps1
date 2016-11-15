@@ -51,7 +51,10 @@ foreach($file in $msgFiles)
 	$subject = $item.Subject.ToString();
 	$subject = Make-StringFilenameSafe -inputstring $subject
 
-	$filename = $item.ReceivedTime.tostring("dd-MM-yyyy-hh-mm-ss-fff") + "_" + $item.SenderName + "_" + $subject
+	$sender = $item.SenderName.ToString();
+	$sender = Make-StringFilenameSafe -inputstring $sender
+
+	$filename = $item.ReceivedTime.tostring("dd-MM-yyyy-hh-mm-ss-fff") + "_" + $sender + "_" + $subject
 
 	$newpath = Split-Path -parent $path
 	$newpath = "$newpath\$filename.msg";
